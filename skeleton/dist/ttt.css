@@ -1,0 +1,11 @@
+ul {
+  display: flex;
+  width: 50px;
+  flex-wrap: wrap 
+}
+
+li {
+    list-style: none;
+    width: 15px;
+    background-color: gray;
+}

@@ -1,11 +1,22 @@
 ul {
   display: flex;
-  width: 50px;
-  flex-wrap: wrap 
+  width: 222px;
+  height: 50px;
+  flex-wrap: wrap;
 }
 
 li {
-    list-style: none;
-    width: 15px;
-    background-color: gray;
+  list-style: none;
+    width: 70px;
+    height: 70px;
+    background-color: rgb(144, 209, 176);
+    border-style: solid;
+}
+
+li:hover {
+  background-color: rgb(158, 112, 193);
+}
+
+.played {
+  background-color: white;
 }

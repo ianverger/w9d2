@@ -15,7 +15,7 @@
   \**********************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("const View = __webpack_require__(/*! ./ttt-view.js */ \"./src/ttt-view.js\")\nconst Game = __webpack_require__(/*! ../ttt_node/game.js */ \"./ttt_node/game.js\")\n\ndocument.addEventListener(\"DOMContentLoaded\", () => {\n    const ele = document.querySelector('.ttt')\n    const game = new Game()\n    const view = new View(game, ele)\n    \n    view.setupBoard();\n\n\n});\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("const View = __webpack_require__(/*! ./ttt-view.js */ \"./src/ttt-view.js\")\nconst Game = __webpack_require__(/*! ../ttt_node/game.js */ \"./ttt_node/game.js\")\n\ndocument.addEventListener(\"DOMContentLoaded\", () => {\n    const ele = document.querySelector('.ttt')\n    const game = new Game()\n    const view = new View(game, ele)\n});\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 
@@ -25,7 +25,7 @@ eval("const View = __webpack_require__(/*! ./ttt-view.js */ \"./src/ttt-view.js\
   \*************************/
 /***/ ((module) => {
 
-eval("class View {\n  constructor(game, el) {\n    this.game = game\n    this.el = el\n  }\n\n  setupBoard() {\n    let ul = document.createElement('ul')\n    // let cell = document.createTextNode('_')\n    // let listItem=li.appendChild(cell)\n    // let text = document.createTextNode('box')\n    // let li = document.createElement('li')\n    for (let i = 0; i < 9; i++) {\n      // let text = document.createTextNode(\"_\")\n      let li = document.createElement('li')\n      // li.append(text)\n      ul.append(li)\n      // ul.append(li)\n      // ul.append(listItem)\n    }\n    this.el.append(ul)\n  }\n  \n  bindEvents() {}\n\n  handleClick(e) {}\n\n  makeMove(square) {}\n\n}\n\n// View.prototype.setupBoard = function() {\n//   let ul = document.createElement('ul')\n//   let li = document.createElement('li')\n// }\n\nmodule.exports = View;\n\n\n//# sourceURL=webpack:///./src/ttt-view.js?");
+eval("class View {\n  constructor(game, el) {\n    this.game = game\n    this.el = el\n    this.setupBoard();\n    this.bindEvents();\n  }\n\n  \n  setupBoard() {\n    let ul = document.createElement('ul')\n    const POSITIONS = [\n      [0,0], [0,1], [0,2], \n      [1,0], [1,1], [1,2],\n      [2,0], [2,1], [2,2]\n    ]\n\n    for (let i = 0; i < 9; i++) {\n        let li = document.createElement('li')\n        li.id = POSITIONS[i]\n        \n        ul.append(li)\n    }\n\n    this.el.append(ul)\n\n  }\n  \n  bindEvents() {\n    this.el.addEventListener(\"click\", this.handleClick.bind(this));\n  }\n\n  handleClick(e) {\n      if (e.target.nodeName === \"LI\") {\n        let pos = e.target.id\n        this.makeMove(pos)\n      }\n    }\n    \n  makeMove(pos) {\n    const ele = document.getElementById(pos)\n    ele.class = \"played\"\n    \n    this.game.playMove(pos)\n  }\n\n}\n\n\n\nmodule.exports = View;\n\n\n//# sourceURL=webpack:///./src/ttt-view.js?");
 
 /***/ }),
 

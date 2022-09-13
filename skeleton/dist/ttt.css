@@ -1,22 +1,55 @@
+h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: fantasy;
+    color: black;
+}
+
+figure {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
 ul {
   display: flex;
-  width: 222px;
-  height: 50px;
+  width: 370px;
+  height: 365px;
   flex-wrap: wrap;
 }
 
 li {
   list-style: none;
-    width: 70px;
-    height: 70px;
-    background-color: rgb(144, 209, 176);
+    width: 120px;
+    height: 120px;
+    background-color: rgb(168, 206, 242);
     border-style: solid;
+    border-color: white;
 }
 
 li:hover {
-  background-color: rgb(158, 112, 193);
+  background-color: rgb(255, 255, 255);
 }
 
-.played {
-  background-color: white;
+.x {
+  background-color: rgb(116, 193, 145);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  font-family: fantasy;
+  color: white;
+
+}
+
+.o {
+    background-color: rgb(228, 165, 238);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    color: white;
+    
 }
